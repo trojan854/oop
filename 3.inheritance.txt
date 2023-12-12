@@ -1,0 +1,48 @@
+/* Online Java Compiler and Editor */
+package oop;
+class Employee {
+    String name,add,mail;
+    float id,mobile,basic;
+    void salary()
+    {
+        float da,hra,pf,cf,gross;
+        da = basic * 97/100; 
+        hra = basic * 10/100;
+        pf = basic * 12/100;
+        cf = basic * 0.1f/100;
+       gross = basic + da + hra - pf - cf;
+       System.out.println("name:"  + name);
+       System.out.println("basic salary :"  + basic);  
+       System.out.println("gross salary :"  + gross);  
+    }
+}
+class programmer extends Employee {
+ programmer(String name, int sal){
+    this.name = name;
+    basic = sal;
+ }
+
+}
+class Teamlead extends Employee{
+   Teamlead(String name, int sal){
+    this.name = name;
+    basic = sal;
+   }
+}
+class APM extends Employee {
+  APM( String name,int sal){
+    this.name = name;
+    basic = sal;
+  }
+}
+class projectmanager extends Employee{
+   projectmanager( int sal){
+    basic = sal;
+   }
+}
+public class Inheritance {
+   public static void main(String [] args){
+     programmer p = new programmer("aniket pawar ",40000);
+     p.salary();
+   }
+}

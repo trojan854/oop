@@ -1,0 +1,32 @@
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class LinkedListExample {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+
+        
+        linkedList.add("Apple");
+        linkedList.add("Banana");
+        linkedList.add("Orange");
+
+       
+        System.out.println("Original LinkedList: " + linkedList);
+
+       
+        linkedList.add(1, "Grapes");
+        linkedList.addLast("Mango");
+
+       
+        System.out.println("Updated LinkedList: " + linkedList);
+
+       
+        linkedList.remove("Banana");
+
+       
+        System.out.println("LinkedList after removing 'Banana': " + linkedList);
+
+       
+        System.out.println("Size of LinkedList: " + linkedList.size());
+    }
+}

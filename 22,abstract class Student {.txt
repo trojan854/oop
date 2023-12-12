@@ -1,0 +1,103 @@
+abstract class Student {
+    String name;
+    int sscMarks;
+    int hscMarks;
+
+    public Student(String name, int sscMarks, int hscMarks) {
+        this.name = name;
+        this.sscMarks = sscMarks;
+        this.hscMarks = hscMarks;
+    }
+
+    abstract String getName();
+    abstract int getSSCMarks();
+    abstract int getHSCMarks();
+}
+
+class Harish extends Student {
+    public Harish(String name, int sscMarks, int hscMarks) {
+        super(name, sscMarks, hscMarks);
+    }
+
+    @Override
+    String getName() {
+        return "Harish: " + name;
+    }
+
+    @Override
+    int getSSCMarks() {
+        return sscMarks;
+    }
+
+    @Override
+    int getHSCMarks() {
+        return hscMarks;
+    }
+}
+
+class Jayant extends Student {
+    public Jayant(String name, int sscMarks, int hscMarks) {
+        super(name, sscMarks, hscMarks);
+    }
+
+    @Override
+    String getName() {
+        return "Jayant: " + name;
+    }
+
+    @Override
+    int getSSCMarks() {
+        return sscMarks;
+    }
+
+    @Override
+    int getHSCMarks() {
+        return hscMarks;
+    }
+}
+
+class Vijay extends Student {
+    public Vijay(String name, int sscMarks, int hscMarks) {
+        super(name, sscMarks, hscMarks);
+    }
+
+    @Override
+    String getName() {
+        return "Vijay: " + name;
+    }
+
+    @Override
+    int getSSCMarks() {
+        return sscMarks;
+    }
+
+    @Override
+    int getHSCMarks() {
+        return hscMarks;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Harish harish = new Harish("Harish Kumar", 90, 85);
+        Jayant jayant = new Jayant("Jayant Sharma", 85, 88);
+        Vijay vijay = new Vijay("Vijay Singh", 92, 90);
+
+        // Print student details
+        System.out.println(harish.getName());
+        System.out.println("SSC Marks: " + harish.getSSCMarks());
+        System.out.println("HSC Marks: " + harish.getHSCMarks());
+
+        System.out.println();
+
+        System.out.println(jayant.getName());
+        System.out.println("SSC Marks: " + jayant.getSSCMarks());
+        System.out.println("HSC Marks: " + jayant.getHSCMarks());
+
+        System.out.println();
+
+        System.out.println(vijay.getName());
+        System.out.println("SSC Marks: " + vijay.getSSCMarks());
+        System.out.println("HSC Marks: " + vijay.getHSCMarks());
+    }
+}

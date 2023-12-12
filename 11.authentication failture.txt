@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+
+class AuthenticationFailure extends Exception {
+    public AuthenticationFailure(String message) {
+        super(message);
+    }
+}
+
+public class PasswordAuthentication {
+   
+    private static void authenticatePassword(String enteredPassword) throws AuthenticationFailure {
+        
+        String correctPassword = "your_password";
+
+        if (!enteredPassword.equals(correctPassword)) {
+            throw new AuthenticationFailure("Authentication Failed: Incorrect Password");
+        } else {
+            System.out.println("Authentication Successful!");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the password: ");
+        String enteredPassword = scanner.nextLine();
+
+        try {
+            authenticatePassword(enteredPassword);
+        } catch (AuthenticationFailure e) {
+            System.out.println(e.getMessage());
+        }
+
+        
+        scanner.close();
+    }
+}

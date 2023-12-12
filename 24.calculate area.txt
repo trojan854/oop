@@ -1,0 +1,81 @@
+
+interface Area {
+    double calculateArea();
+}
+
+
+class Square implements Area {
+    private double side;
+
+    public Square(double side) {
+        this.side = side;
+    }
+
+    
+    public double calculateArea() {
+        return side * side;
+    }
+}
+
+
+class Circle implements Area {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+
+class Triangle implements Area {
+    private double base;
+    private double height;
+
+    public Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    
+    public double calculateArea() {
+        return 0.5 * base * height;
+    }
+}
+
+
+class Rectangle implements Area {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+ 
+    public double calculateArea() {
+        return length * width;
+    }
+}
+
+public class AreaCalculation {
+    public static void main(String[] args) {
+       
+        Square square = new Square(5);
+        System.out.println("Square Area: " + square.calculateArea());
+
+        Circle circle = new Circle(3);
+        System.out.println("Circle Area: " + circle.calculateArea());
+
+        Triangle triangle = new Triangle(4, 6);
+        System.out.println("Triangle Area: " + triangle.calculateArea());
+
+        Rectangle rectangle = new Rectangle(5, 8);
+        System.out.println("Rectangle Area: " + rectangle.calculateArea());
+    }
+}

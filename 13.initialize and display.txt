@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class Student {
+    private String name;
+    private int rollNo;
+    private double sub1;
+    private double sub2;
+
+   
+    public Student(String name, int rollNo, double sub1, double sub2) {
+        this.name = name;
+        this.rollNo = rollNo;
+        this.sub1 = sub1;
+        this.sub2 = sub2;
+    }
+
+    
+    public void displayStudentDetails() {
+        System.out.println("Student Details:");
+        System.out.println("Name: " + name);
+        System.out.println("Roll No: " + rollNo);
+        System.out.println("Subject 1 Marks: " + sub1);
+        System.out.println("Subject 2 Marks: " + sub2);
+    }
+
+    
+    public double calculateTotalMarks() {
+        return sub1 + sub2;
+    }
+
+    
+    public double calculatePercentage() {
+        double totalMarks = calculateTotalMarks();
+        return (totalMarks / 200) * 100;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+       
+        System.out.print("Enter student name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter roll number: ");
+        int rollNo = scanner.nextInt();
+
+        System.out.print("Enter marks for Subject 1: ");
+        double sub1 = scanner.nextDouble();
+
+        System.out.print("Enter marks for Subject 2: ");
+        double sub2 = scanner.nextDouble();
+
+        
+        Student student = new Student(name, rollNo, sub1, sub2);
+
+       
+        student.displayStudentDetails();
+
+       
+        System.out.println("Total Marks: " + student.calculateTotalMarks());
+        System.out.println("Percentage Scored: " + student.calculatePercentage() + "%");
+
+       
+        scanner.close();
+    }
+}

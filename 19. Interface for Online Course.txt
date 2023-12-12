@@ -1,0 +1,67 @@
+// Interface for Online Course
+interface OnlineCourse {
+    String getDetails();
+}
+
+
+class PythonCourse implements OnlineCourse {
+    @Override
+    public String getDetails() {
+        return "Python Course Details: Python fundamentals, advanced topics, and projects.";
+    }
+}
+
+
+class DataStructuresCourse implements OnlineCourse {
+    @Override
+    public String getDetails() {
+        return "Data Structures Course Details: Learn about various data structures and algorithms.";
+    }
+}
+
+
+class JavaCourse implements OnlineCourse {
+    @Override
+    public String getDetails() {
+        return "Java Course Details: Java programming basics, OOP concepts, and application development.";
+    }
+}
+
+
+class OnlineCourseFactory {
+    public OnlineCourse createCourse(String courseType) {
+        switch (courseType.toLowerCase()) {
+            case "python":
+                return new PythonCourse();
+            case "data structures":
+                return new DataStructuresCourse();
+            case "java":
+                return new JavaCourse();
+            default:
+                throw new IllegalArgumentException("Invalid course type: " + courseType);
+        }
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        OnlineCourseFactory courseFactory = new OnlineCourseFactory();
+
+        
+        OnlineCourse pythonCourse = courseFactory.createCourse("Python");
+        System.out.println(pythonCourse.getDetails());
+
+        System.out.println();
+
+        
+        OnlineCourse dsCourse = courseFactory.createCourse("Data Structures");
+        System.out.println(dsCourse.getDetails());
+
+        System.out.println();
+
+        
+        OnlineCourse javaCourse = courseFactory.createCourse("Java");
+        System.out.println(javaCourse.getDetails());
+    }
+}

@@ -1,0 +1,86 @@
+import java.util.Scanner;
+
+class Account {
+    protected String cust_name;
+    protected int acc_no;
+
+   
+    public Account(String cust_name, int acc_no) {
+        this.cust_name = cust_name;
+        this.acc_no = acc_no;
+    }
+
+   
+    public void displayAccountDetails() {
+        System.out.println("Customer Name: " + cust_name);
+        System.out.println("Account Number: " + acc_no);
+    }
+}
+
+class Saving_Acc extends Account {
+    protected double min_bal;
+    protected double saving_bal;
+
+   
+    public Saving_Acc(String cust_name, int acc_no, double min_bal, double saving_bal) {
+        super(cust_name, acc_no);
+        this.min_bal = min_bal;
+        this.saving_bal = saving_bal;
+    }
+
+    
+    public void displaySavingAccountDetails() {
+        displayAccountDetails();
+        System.out.println("Minimum Balance: $" + min_bal);
+        System.out.println("Saving Balance: $" + saving_bal);
+    }
+}
+
+class Acct_Details extends Saving_Acc {
+    protected double deposits;
+    protected double withdrawals;
+
+    public Acct_Details(String cust_name, int acc_no, double min_bal, double saving_bal, double deposits, double withdrawals) {
+        super(cust_name, acc_no, min_bal, saving_bal);
+        this.deposits = deposits;
+        this.withdrawals = withdrawals;
+    }
+
+   
+    public void displayAccountDetailsWithTransactions() {
+        displaySavingAccountDetails();
+        System.out.println("Total Deposits: $" + deposits);
+        System.out.println("Total Withdrawals: $" + withdrawals);
+    }
+}
+
+public class MultiLevelInheritanceExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        System.out.println("Enter Account Details:");
+        System.out.print("Customer Name: ");
+        String cust_name = scanner.nextLine();
+        System.out.print("Account Number: ");
+        int acc_no = scanner.nextInt();
+        System.out.print("Minimum Balance: $");
+        double min_bal = scanner.nextDouble();
+        System.out.print("Saving Balance: $");
+        double saving_bal = scanner.nextDouble();
+        System.out.print("Total Deposits: $");
+        double deposits = scanner.nextDouble();
+        System.out.print("Total Withdrawals: $");
+        double withdrawals = scanner.nextDouble();
+
+       
+        Acct_Details accountDetails = new Acct_Details(cust_name, acc_no, min_bal, saving_bal, deposits, withdrawals);
+
+       
+        System.out.println("\nAccount Details with Transactions:");
+        accountDetails.displayAccountDetailsWithTransactions();
+
+        
+        scanner.close();
+    }
+}

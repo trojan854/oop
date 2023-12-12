@@ -1,0 +1,24 @@
+package oop;
+public class Complex{
+    float real,img;
+    Complex(){}
+    Complex(float x, float y){
+        real=x;
+        img=y;
+    }
+    Complex add(Complex a){
+        Complex temp=new Complex();
+        temp.real=this.real+a.real;
+        temp.img=this.img+a.img;
+        return temp;
+    
+}
+public static void main(String [] args){
+    Complex c1=new Complex(5.6f,6.4f);
+    Complex c2=new Complex(7.6f,3.4f);
+    Complex res;
+    res=c1.add(c2);
+    System.out.printf("Addition:%2.2f+%2.2f",res.real,res.img);
+    
+}
+}

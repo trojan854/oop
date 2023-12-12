@@ -1,0 +1,116 @@
+
+abstract class Car {
+    String model;
+    String type;
+    String accessories;
+    String makeup;
+
+   
+    abstract void allocateAccessories();
+
+    
+    abstract void doMakeup();
+
+    
+    void displayDetails() {
+        System.out.println("Car Model: " + model);
+        System.out.println("Car Type: " + type);
+        System.out.println("Accessories: " + accessories);
+        System.out.println("Makeup: " + makeup);
+        System.out.println("--------------------------");
+    }
+}
+
+
+class Hatchback extends Car {
+    Hatchback(String model) {
+        this.model = model;
+        this.type = "Hatchback";
+        allocateAccessories();
+        doMakeup();
+    }
+
+    @Override
+    void allocateAccessories() {
+        accessories = "Basic Hatchback Accessories";
+    }
+
+    @Override
+    void doMakeup() {
+        makeup = "Basic Hatchback Makeup";
+    }
+}
+
+
+class Sedan extends Car {
+    Sedan(String model) {
+        this.model = model;
+        this.type = "Sedan";
+        allocateAccessories();
+        doMakeup();
+    }
+
+    @Override
+    void allocateAccessories() {
+        accessories = "Luxury Sedan Accessories";
+    }
+
+    @Override
+    void doMakeup() {
+        makeup = "Luxury Sedan Makeup";
+    }
+}
+
+
+class SUV extends Car {
+    SUV(String model) {
+        this.model = model;
+        this.type = "SUV";
+        allocateAccessories();
+        doMakeup();
+    }
+
+    @Override
+    void allocateAccessories() {
+        accessories = "Off-road SUV Accessories";
+    }
+
+    @Override
+    void doMakeup() {
+        makeup = "Off-road SUV Makeup";
+    }
+}
+
+
+class CarFactory {
+    public Car createCar(String model, String type) {
+        if (type.equalsIgnoreCase("Hatchback")) {
+            return new Hatchback(model);
+        } else if (type.equalsIgnoreCase("Sedan")) {
+            return new Sedan(model);
+        } else if (type.equalsIgnoreCase("SUV")) {
+            return new SUV(model);
+        } else {
+            return null;
+        }
+    }
+}
+
+
+public class TestFactoryPattern {
+    public static void main(String[] args) {
+        CarFactory carFactory = new CarFactory();
+
+        
+        Car hatchbackCar = carFactory.createCar("ABC123", "Hatchback");
+        hatchbackCar.displayDetails();
+
+       
+        Car sedanCar = carFactory.createCar("XYZ456", "Sedan");
+        sedanCar.displayDetails();
+
+       
+        Car suvCar = carFactory.createCar("PQR789", "SUV");
+        suvCar.displayDetails();
+    }
+}

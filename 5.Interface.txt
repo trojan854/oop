@@ -1,0 +1,58 @@
+package oop;       
+interface Vehicles{
+    public void gearChange();
+    public void speedUp();
+    public void applyBreaks();
+}
+class Bicycle implements Vehicles{
+    public void gearChange(){
+        System.out.println("Gear Change for Bicycles");
+    }
+    public void speedUp(){
+        System.out.println(" speedUp for Bicycles");
+    }
+    public void applyBreaks(){
+        System.out.println(" applyBreaks of Bicycles");
+    }
+}
+class Car implements Vehicles{
+     public void gearChange(){
+        System.out.println("Gear Change for car");
+    }
+    public void speedUp(){
+        System.out.println(" speedUp for car");
+    }
+    public void applyBreaks(){
+        System.out.println(" applyBreaks for car");
+    }
+}
+class Bike implements Vehicles{
+     public void gearChange(){
+        System.out.println("Gear Change for Bike");
+    }
+    public void speedUp(){
+        System.out.println(" speedUp for Bike");
+    }
+    public void applyBreaks(){
+        System.out.println(" applyBreaks of Bike");
+    }
+}
+public class Interface{
+    public static void main(String []args){
+        Vehicles v;
+        v=new Bicycle();
+        v.gearChange();
+        v.speedUp();
+        v.applyBreaks();
+        
+         v=new Car();
+        v.gearChange();
+        v.speedUp();
+        v.applyBreaks();
+        
+         v=new Bike();
+        v.gearChange();
+        v.speedUp();
+        v.applyBreaks();
+    }
+}

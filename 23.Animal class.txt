@@ -1,0 +1,76 @@
+ Animal class
+class Animal {
+    private String eats;
+    private int noOfLegs;
+    private boolean isVeg;
+
+    // Constructor
+    public Animal(String eats, int noOfLegs, boolean isVeg) {
+        this.eats = eats;
+        this.noOfLegs = noOfLegs;
+        this.isVeg = isVeg;
+    }
+
+    // Getter and Setter methods
+    public String getEats() {
+        return eats;
+    }
+
+    public void setEats(String eats) {
+        this.eats = eats;
+    }
+
+    public int getNoOfLegs() {
+        return noOfLegs;
+    }
+
+    public void setNoOfLegs(int noOfLegs) {
+        this.noOfLegs = noOfLegs;
+    }
+
+    public boolean isVeg() {
+        return isVeg;
+    }
+
+    public void setVeg(boolean veg) {
+        isVeg = veg;
+    }
+}
+
+// Cat class extending Animal
+class Cat extends Animal {
+    private String skinColor;
+
+    // Constructor using super keyword
+    public Cat(String eats, int noOfLegs, boolean isVeg, String skinColor) {
+        super(eats, noOfLegs, isVeg);
+        this.skinColor = skinColor;
+    }
+
+    // Getter and Setter for skinColor
+    public String getSkinColor() {
+        return skinColor;
+    }
+
+    public void setSkinColor(String skinColor) {
+        this.skinColor = skinColor;
+    }
+
+    // Method to print all values
+    public void printDetails() {
+        System.out.println("Eats: " + getEats());
+        System.out.println("Number of Legs: " + getNoOfLegs());
+        System.out.println("Is Vegetarian: " + isVeg());
+        System.out.println("Skin Color: " + getSkinColor());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an instance of Cat
+        Cat myCat = new Cat("Meat", 4, false, "Gray");
+
+        // Printing details using printDetails method
+        myCat.printDetails();
+    }
+}

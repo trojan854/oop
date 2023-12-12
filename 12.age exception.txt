@@ -1,0 +1,27 @@
+class AgeExceptionFailure extends Exception {
+    public AgeExceptionFailure(String message) {
+        super(message);
+    }
+}
+
+class VotingEligibilityChecker {
+    public static void checkAge(int age) throws AgeExceptionFailure {
+        if (age < 18) {
+            throw new AgeExceptionFailure("AgeExceptionFailure: Candidate is not eligible to vote as age is less than 18.");
+        } else {
+            System.out.println("Candidate is eligible to vote.");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            int candidateAge = 20; 
+
+            VotingEligibilityChecker.checkAge(candidateAge);
+        } catch (AgeExceptionFailure e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+}
